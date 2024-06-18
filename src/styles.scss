@@ -58,57 +58,60 @@ video.playlist-image {
   margin-bottom: -1px;
 }
 
-.playlist-image {
-  view-transition-class: playlist-image;
+
+
+.with-transition .playlist-image {
+  view-transition-name: playlist-image;
 }
 
-.playlist-title {
-  view-transition-class: playlist-title;
+.with-transition .playlist-title {
+  view-transition-name: playlist-title;
 }
 
-.playlist-stats {
-  view-transition-class: playlist-stats;
+.with-transition .playlist-stats {
+  view-transition-name: playlist-stats;
 }
 
-.playlist-description {
-  view-transition-class: playlist-description;
+.with-transition .playlist-description {
+  view-transition-name: playlist-description;
 }
 
-.playlist-avatar {
-  view-transition-class: playlist-avatar;
+.with-transition .playlist-avatar {
+  view-transition-name: playlist-avatar;
 }
 
-.playlist-add-button {
-  view-transition-class: playlist-add-button;
+.with-transition .playlist-add-button {
+  view-transition-name: playlist-add-button;
 }
 
-.playlist-user-name {
-  view-transition-class: playlist-user-name;
+.with-transition .playlist-user-name {
+  view-transition-name: playlist-user-name;
 }
 
-.playlist-user-date {
-  view-transition-class: playlist-user-date;
+.with-transition .playlist-user-date {
+  view-transition-name: playlist-user-date;
 }
 
-.playlist-controls {
-  view-transition-class: playlist-controls;
+.with-transition .playlist-controls {
+  view-transition-name: playlist-controls;
 }
 
-.playlist-overlay {
-  view-transition-class: playlist-overlay;
+.with-transition .playlist-overlay {
+  view-transition-name: playlist-overlay;
 }
 
-.playlist-background {
-  view-transition-class: playlist-background;
+.with-transition .playlist-background {
+  view-transition-name: playlist-background;
 }
 
-.playlist-back-button {
-  view-transition-class: playlist-back-button;
+.with-transition .playlist-back-button {
+  view-transition-name: playlist-back-button;
 }
+
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation: none;
+animation: none;
   display: none;
 }
 
@@ -117,8 +120,8 @@ video.playlist-image {
 * different aspect ratios
 */
 
-::view-transition-old(.playlist-background),
-::view-transition-new(.playlist-background) {
+::view-transition-old(playlist-background),
+::view-transition-new(playlist-background) {
   /* Prevent the default animation,
   so both views remain opacity:1 throughout the transition */
   animation: none;
@@ -132,13 +135,13 @@ video.playlist-image {
   overflow: clip;
 }
 
-::view-transition-old(.playlist-background) {
+::view-transition-old(playlist-background) {
   /* Maintain the aspect ratio of the view,
   by shrinking it to fit within the bounds of the element */
   object-fit: contain;
 }
 
-::view-transition-new(.playlist-background) {
+::view-transition-new(playlist-background) {
   /* Maintain the aspect ratio of the view,
   by growing it to cover the bounds of the element */
   object-fit: cover;
@@ -148,11 +151,11 @@ video.playlist-image {
 * Handle smooth video transition
 */
 
-::view-transition-old(.playlist-image) {
+::view-transition-old(playlist-image) {
   display: none;
 }
 
-::view-transition-new(.playlist-image) {
+::view-transition-new(playlist-image) {
   animation: none;
 }
 
@@ -160,11 +163,11 @@ video.playlist-image {
 * App Header Entry and Exit transitions
 */
 
-::view-transition-new(.app-header):only-child {
+::view-transition-new(app-header):only-child {
   animation: 250ms cubic-bezier(0.4, 0, 0.2, 1) both slide-in;
 }
 
-::view-transition-old(.app-header):only-child {
+::view-transition-old(app-header):only-child {
   animation: 250ms cubic-bezier(0.4, 0, 0.2, 1) both slide-out;
 }
 
