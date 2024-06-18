@@ -1,0 +1,27 @@
+:host {
+  .playlist-media {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    overflow-x: clip;
+  }
+
+  .playlist-media .card-media-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, var(--backgroundColor), transparent);
+    border-radius: 2rem;
+    z-index: 2;
+  }
+
+  .playlist-media img {
+    display: block;
+    max-height: 480px;
+    z-index: 1;
+  }
+}

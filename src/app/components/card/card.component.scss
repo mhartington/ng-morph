@@ -1,0 +1,39 @@
+:host {
+  .card {
+    border-radius: 2rem;
+    text-decoration: none;
+    color: var(--textColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in-out 0.25s;
+    position: relative;
+
+    box-shadow: var(--shadow-elevation-low);
+
+    &:hover {
+      transform: scale(0.97);
+    }
+    h2 {
+      font-size: 30px;
+      margin: 10px 0;
+      position: relative;
+      text-align: center;
+    }
+
+    .solid-background {
+      background: var(--backgroundColor);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border-radius: 2rem;
+
+      background-image: var(--backgroundImage);
+      background-repeat: repeat-y;
+      background-size: contain;
+    }
+  }
+}

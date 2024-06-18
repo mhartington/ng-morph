@@ -1,0 +1,31 @@
+:host {
+  .app-header {
+    box-shadow: var(--shadow-elevation-low);
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: white;
+    view-transition-name: app-header;
+  }
+
+  .app-header .header-content {
+    margin: auto;
+    padding: 1.5rem 1.5rem;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .app-header svg {
+    width: 26px;
+    margin-bottom: -7px;
+  }
+
+  .app-header h1 {
+    margin: 0;
+    font-size: 22px;
+    flex: 1;
+  }
+}

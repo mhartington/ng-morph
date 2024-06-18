@@ -1,0 +1,17 @@
+:host{
+
+  .app-container {
+    margin: auto;
+    padding: 0 1.5rem 1.5rem;
+    max-width: 600px;
+  }
+
+  .app-container .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .app-container footer {
+    padding: 40px 0px;
+  }
+}

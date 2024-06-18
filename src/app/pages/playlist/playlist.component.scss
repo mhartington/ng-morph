@@ -1,0 +1,44 @@
+:host {
+  .playlist-container {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 600px;
+
+    header {
+      color: var(--textColor);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .solid-background {
+      background: var(--backgroundColor);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      background-image: var(--backgroundImage);
+      background-repeat: repeat-y;
+      background-size: contain;
+    }
+
+    h1 {
+      margin: 10px 0 15px;
+      font-size: 3rem;
+      text-align: center;
+      z-index: 1;
+    }
+
+    p {
+      text-align: center;
+      max-width: 360px;
+      line-height: 1.6;
+      color: var(--secondaryTextColor);
+      z-index: 1;
+    }
+  }
+}

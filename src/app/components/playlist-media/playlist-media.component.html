@@ -1,0 +1,12 @@
+<div class="playlist-media">
+  @if (media().type === 'image') {
+    <img [src]="media().url" [alt]="title()" class="playlist-image" />
+  } @else {
+    <div>
+      <video loop muted autoplay playsinline class="playlist-image">
+        <source [src]="media().url" type="video/mp4" />
+      </video>
+    </div>
+  }
+  <app-player-controls [showExtraButtons]="true" />
+</div>

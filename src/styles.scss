@@ -1,1 +1,197 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --off-white: rgb(213, 213, 213);
+  --light-gray: rgb(195, 195, 195);
+  --shadow-color: 0deg 0% 50%;
+  --shadow-elevation-low: 0px 0.5px 0.6px hsl(var(--shadow-color) / 0.31),
+    0px 1px 1.3px -0.8px hsl(var(--shadow-color) / 0.41),
+    0px 2.3px 2.9px -1.6px hsl(var(--shadow-color) / 0.52);
+  --shadow-elevation-medium: 0px 0.5px 0.6px hsl(var(--shadow-color) / 0.32),
+    0px 2.2px 2.8px -0.5px hsl(var(--shadow-color) / 0.41),
+    0px 5.1px 6.4px -1.1px hsl(var(--shadow-color) / 0.49),
+    0px 11.7px 14.7px -1.6px hsl(var(--shadow-color) / 0.57);
+  --shadow-elevation-high: 0px 0.5px 0.6px hsl(var(--shadow-color) / 0.3),
+    0px 4.8px 6px -0.2px hsl(var(--shadow-color) / 0.34),
+    0px 8.9px 11.1px -0.5px hsl(var(--shadow-color) / 0.38),
+    0px 14px 17.5px -0.7px hsl(var(--shadow-color) / 0.42),
+    0px 21.2px 26.6px -0.9px hsl(var(--shadow-color) / 0.46),
+    0.1px 31.7px 39.7px -1.2px hsl(var(--shadow-color) / 0.49),
+    0.1px 46.6px 58.4px -1.4px hsl(var(--shadow-color) / 0.53),
+    0.1px 67.3px 84.3px -1.6px hsl(var(--shadow-color) / 0.57);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  background-color: #f6f6f6;
+}
+body {
+  margin: 0;
+}
+code {
+  font-family:
+    Menlo,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New,
+    monospace;
+}
+
+video.playlist-image {
+  display: block;
+  max-width: 100%;
+  /* height: 350px; */
+  border-radius: 0 0 2rem 2rem;
+
+  min-height: 418px;
+  object-fit: cover;
+
+  clip-path: inset(1px 1px);
+  margin-bottom: -1px;
+}
+
+.playlist-image {
+  view-transition-class: playlist-image;
+}
+
+.playlist-title {
+  view-transition-class: playlist-title;
+}
+
+.playlist-stats {
+  view-transition-class: playlist-stats;
+}
+
+.playlist-description {
+  view-transition-class: playlist-description;
+}
+
+.playlist-avatar {
+  view-transition-class: playlist-avatar;
+}
+
+.playlist-add-button {
+  view-transition-class: playlist-add-button;
+}
+
+.playlist-user-name {
+  view-transition-class: playlist-user-name;
+}
+
+.playlist-user-date {
+  view-transition-class: playlist-user-date;
+}
+
+.playlist-controls {
+  view-transition-class: playlist-controls;
+}
+
+.playlist-overlay {
+  view-transition-class: playlist-overlay;
+}
+
+.playlist-background {
+  view-transition-class: playlist-background;
+}
+
+.playlist-back-button {
+  view-transition-class: playlist-back-button;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  display: none;
+}
+
+/**
+* Handle card background transition: expanding and shrinking with
+* different aspect ratios
+*/
+
+::view-transition-old(.playlist-background),
+::view-transition-new(.playlist-background) {
+  /* Prevent the default animation,
+  so both views remain opacity:1 throughout the transition */
+  animation: none;
+  /* Use normal blending,
+  so the new view sits on top and obscures the old view */
+  mix-blend-mode: normal;
+  /* Make the height the same as the group,
+  meaning the view size might not match its aspect-ratio. */
+  height: 100%;
+  /* Clip any overflow of the view */
+  overflow: clip;
+}
+
+::view-transition-old(.playlist-background) {
+  /* Maintain the aspect ratio of the view,
+  by shrinking it to fit within the bounds of the element */
+  object-fit: contain;
+}
+
+::view-transition-new(.playlist-background) {
+  /* Maintain the aspect ratio of the view,
+  by growing it to cover the bounds of the element */
+  object-fit: cover;
+}
+
+/**
+* Handle smooth video transition
+*/
+
+::view-transition-old(.playlist-image) {
+  display: none;
+}
+
+::view-transition-new(.playlist-image) {
+  animation: none;
+}
+
+/**
+* App Header Entry and Exit transitions
+*/
+
+::view-transition-new(.app-header):only-child {
+  animation: 250ms cubic-bezier(0.4, 0, 0.2, 1) both slide-in;
+}
+
+::view-transition-old(.app-header):only-child {
+  animation: 250ms cubic-bezier(0.4, 0, 0.2, 1) both slide-out;
+}
+
+/**
+* Custom animations
+*/
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-70px);
+  }
+}
+
+@keyframes slide-out {
+  to {
+    transform: translateY(-70px);
+  }
+}

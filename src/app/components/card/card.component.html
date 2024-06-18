@@ -1,0 +1,22 @@
+<a
+  [routerLink]="['/', 'playlist', id()]"
+  class="card"
+  [style.--backgroundColor]="backgroundColor()"
+  [style.--backgroundImage]="backgroundImage() ? 'url(' + backgroundImage()+ ')' : 'none'"
+  [style.--textColor]="textColor()"
+  [style.--secondaryTextColor]="secondaryTextColor()"
+>
+
+  @if(backgroundAnimation() === 'floatingSquares'){
+    <app-floating-squares [isRounded]="true" />
+  } @else if(backgroundAnimation() === 'purpleVideo' ){
+    <app-background-video [isRounded]="true" />
+  } @else {
+    <div class="solid-background playlist-background"></div>
+  }
+  <app-card-header  [avatar]="user().avatar" [name]="user().name" [date]="user().date"/>
+
+  <h2 class="playlist-title">{{title()}}</h2>
+  <app-card-stats [count]="stats().count" [time]="stats().time" />
+  <app-card-media [backgroundColor]="backgroundColor()" [title]="title()" [media]="media()" />
+</a>

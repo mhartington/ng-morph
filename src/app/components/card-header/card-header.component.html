@@ -1,0 +1,29 @@
+<header class="card-header">
+  <img [src]="avatar()" [alt]="name()" class="playlist-avatar" />
+  <div class="user-info">
+    <span class="user-name">
+      <span class="playlist-user-name">
+        {{name()}}
+      </span>
+    </span>
+    <span class="user-date">
+      <span class="playlist-user-date">
+        {{date()}}
+      </span>
+    </span>
+  </div>
+  <button class="playlist-add-button" aria-label="Add playlist">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="3"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 4.5v15m7.5-7.5h-15"></path>
+    </svg>
+  </button>
+</header>

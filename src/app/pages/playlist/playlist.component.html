@@ -1,0 +1,35 @@
+<main
+  class="playlist-container with-transition"
+  [style.--backgroundColor]="playlist().backgroundColor"
+  [style.--textColor]="playlist().textColor"
+  [style.--secondaryTextColor]="playlist().secondaryTextColor"
+  [style.--backgroundImage]="
+    playlist().backgroundImage
+      ? 'url(' + playlist().backgroundImage + ')'
+      : 'none'
+  "
+>
+  <header>
+    @if (playlist().backgroundAnimation === 'floatingSquares') {
+      <app-floating-squares [isRounded]="true" />
+    } @else if (playlist().backgroundAnimation === 'purpleVideo') {
+      <app-background-video [isRounded]="true" />
+    } @else {
+      <div class="solid-background playlist-background"></div>
+    }
+
+    <app-playlist-header
+      [avatar]="playlist().user.avatar"
+      [name]="playlist().user.name"
+      [date]="playlist().user.date"
+    />
+    <h1 class="playlist-title">{{ playlist().title }}</h1>
+    <app-card-stats
+      [time]="playlist().stats.time"
+      [count]="playlist().stats.count"
+    />
+    <p class="playlist-description">{{ playlist().description }}</p>
+    <app-playlist-media [title]="playlist().title" [media]="playlist().media" />
+  </header>
+  <app-playlist-details />
+</main>

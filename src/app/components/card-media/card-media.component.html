@@ -1,0 +1,30 @@
+<div
+  class="card-media"
+  [style.--marginTop]="media().type === 'image' ? '20px' : '0'"
+>
+  @if (media().type === 'image') {
+    <img
+      class="playlist-image"
+      [src]="media().url"
+      [alt]="title()"
+      [width]="media().width"
+      [height]="media().height"
+    />
+  } @else {
+    <div>
+      <video
+       loop="true"
+       muted="true"
+       autoplay="true"
+       playsinline="true"
+        class="playlist-image"
+        [width]="media().width"
+        [height]="media().height"
+      >
+        <source [src]="media().url" type="video/mp4" />
+      </video>
+    </div>
+  }
+
+  <app-player-controls />
+</div>

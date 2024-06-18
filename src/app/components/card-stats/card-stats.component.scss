@@ -1,0 +1,22 @@
+:host {
+  .card-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--secondaryTextColor);
+    margin: 10px 0;
+    position: relative;
+  }
+
+  .card-stats .stat {
+    display: flex;
+    gap: 4px;
+  }
+
+  .card-stats svg {
+    width: 16px;
+    height: 16px;
+  }
+}

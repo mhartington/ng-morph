@@ -1,0 +1,56 @@
+:host {
+  .player-controls-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .player-controls-container .player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 0;
+    gap: 20px;
+  }
+
+  .player-controls-container .control {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .player-controls-container .big-control {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .player-controls-container .big-control svg {
+    width: 28px;
+    height: 28px;
+    color: black;
+  }
+
+  .player-controls-container .small-control {
+    width: 46px;
+    height: 46px;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .player-controls-container .small-control svg {
+    width: 20px;
+    height: 20px;
+    color: white;
+  }
+
+  .player-controls-container .extra-control {
+    visibility: var(--visibility);
+  }
+}
