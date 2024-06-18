@@ -12,6 +12,7 @@ import {
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
+import { CurrentTransitionService } from './services/view-transition.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,24 +22,11 @@ export const appConfig: ApplicationConfig = {
       withComponentInputBinding(),
       withViewTransitions({
         onViewTransitionCreated: (info) => {
-          const router = inject(Router);
-          const fromPath = router.url;
-          const toPath = router.getCurrentNavigation().finalUrl.toString();
-
-          const  cards = document.querySelectorAll('.card')
-            .forEach((card) => card.classList.remove('with-transition'));
-
-
-          let target;
-          if (toPath === '/') {
-            target = document.querySelector(`a[href="${fromPath}"]`);
-          } else {
-            target = document.querySelector(`a[href="${toPath}"]`);
-          }
-
-          if (target) {
-            target.classList.add('with-transition');
-          }
+          const currentTransitionService = inject(CurrentTransitionService);
+          currentTransitionService.currentTransition.set(info);
+          info.transition.finished.finally(() => {
+            currentTransitionService.currentTransition.set(null);
+          });
         },
       }),
     ),

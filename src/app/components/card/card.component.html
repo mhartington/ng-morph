@@ -1,6 +1,7 @@
 <a
   [routerLink]="['/', 'playlist', id()]"
   class="card"
+  [class]="viewTransitionName(id())"
   [style.--backgroundColor]="backgroundColor()"
   [style.--backgroundImage]="backgroundImage() ? 'url(' + backgroundImage()+ ')' : 'none'"
   [style.--textColor]="textColor()"

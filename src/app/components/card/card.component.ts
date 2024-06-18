@@ -1,10 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { CardMediaComponent } from '../card-media/card-media.component';
 import { CardStatsComponent } from '../card-stats/card-stats.component';
 import { CardHeaderComponent } from '../card-header/card-header.component';
 import { BackgroundVideoComponent } from '../background-video/background-video.component';
 import { FloatingSquaresComponent } from '../floating-squares/floating-squares.component';
 import { RouterLinkWithHref } from '@angular/router';
+import { CurrentTransitionService } from '../../services/view-transition.service';
 
 @Component({
   selector: 'app-card',
@@ -15,7 +16,7 @@ import { RouterLinkWithHref } from '@angular/router';
     CardHeaderComponent,
     BackgroundVideoComponent,
     FloatingSquaresComponent,
-    RouterLinkWithHref
+    RouterLinkWithHref,
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
@@ -31,4 +32,14 @@ export class CardComponent {
   textColor = input<string>();
   secondaryTextColor = input<string>();
   media = input<{ type: string; url: string }>();
+
+  transitionService = inject(CurrentTransitionService);
+
+  viewTransitionName(id: string) {
+    const transition = this.transitionService.currentTransition();
+    const isBannerImg =
+      transition?.to.firstChild?.params.id === id ||
+      transition?.from.firstChild?.params.id === id;
+    return isBannerImg ? 'with-transition' : '';
+  }
 }
