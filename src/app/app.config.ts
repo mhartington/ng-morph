@@ -21,6 +21,7 @@ export const appConfig: ApplicationConfig = {
       routes,
       withComponentInputBinding(),
       withViewTransitions({
+        skipInitialTransition: true,
         onViewTransitionCreated: (info) => {
           const currentTransitionService = inject(CurrentTransitionService);
           currentTransitionService.currentTransition.set(info);

@@ -109,12 +109,6 @@ video.playlist-image {
 }
 
 
-::view-transition-old(root),
-::view-transition-new(root) {
-animation: none;
-  display: none;
-}
-
 /**
 * Handle card background transition: expanding and shrinking with
 * different aspect ratios
@@ -176,25 +170,17 @@ animation: none;
 */
 
 @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
+  from { opacity: 0; }
 }
 
 @keyframes fade-out {
-  to {
-    opacity: 0;
-  }
+  to { opacity: 0; }
 }
 
 @keyframes slide-in {
-  from {
-    transform: translateY(-70px);
-  }
+  from { transform: translateY(-70px); }
 }
 
 @keyframes slide-out {
-  to {
-    transform: translateY(-70px);
-  }
+  to { transform: translateY(-70px); }
 }
