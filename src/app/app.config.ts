@@ -4,9 +4,9 @@ import {
   provideZoneChangeDetection,
 } from '@angular/core';
 import {
-  Router,
   provideRouter,
   withComponentInputBinding,
+  withInMemoryScrolling,
   withViewTransitions,
 } from '@angular/router';
 
@@ -19,6 +19,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
       routes,
+      withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
       withComponentInputBinding(),
       withViewTransitions({
         skipInitialTransition: true,

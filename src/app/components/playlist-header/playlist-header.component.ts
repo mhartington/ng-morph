@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, inject, input } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
 
 @Component({
@@ -12,4 +13,9 @@ export class PlaylistHeaderComponent {
   avatar = input<string>();
   name = input<string>();
   date = input<string>();
+
+  location = inject(Location)
+  goBack(){
+    this.location.back();
+  }
 }

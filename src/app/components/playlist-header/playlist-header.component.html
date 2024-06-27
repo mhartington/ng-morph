@@ -1,5 +1,5 @@
 <header class="playlist-header">
-  <a [routerLink]="['/']" class="back-button playlist-back-button">
+  <button (click)="goBack()" class="back-button playlist-back-button">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -12,7 +12,7 @@
         stroke-linejoin="round"
         d="M15.75 19.5L8.25 12l7.5-7.5"></path>
     </svg>
-  </a>
+  </button>
   <div class="avatar-container">
     <img [src]="avatar()" [alt]="name()" class="playlist-avatar" />
     <button class="add-button playlist-add-button">
